@@ -3,7 +3,7 @@ import { DeleteAnnotationService } from "../../service/annotationServices/Delete
 
 export class DeleteAnnotationController {
   async handle(req: Request, res: Response) {
-    const { id } = req.params;
+    const { id } = req.body;
     const createAnnotationService = new DeleteAnnotationService();
     const annotation = await createAnnotationService.execute({ id });
     return res.json(annotation);
