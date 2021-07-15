@@ -4,18 +4,20 @@ import { User } from "../../entities/User";
 
 interface IUserRequest {
   id: string;
+  name: string;
   email: string;
   password: string;
 }
 
 export class UpdateUserService {
-  async execute({ id, email, password }: IUserRequest) {
+  async execute({ id, name, email, password }: IUserRequest) {
     const usersRepositories = getCustomRepository(UsersRepositories);
 
     const users = usersRepositories
       .createQueryBuilder()
       .update(User)
       .set({
+        name,
         email,
         password,
       })

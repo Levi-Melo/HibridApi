@@ -27,11 +27,11 @@ export const router = Router();
 router.get("/annotations", listAnnotationsController.handle);
 router.post("/annotations", createAnnotationController.handle);
 router.put("/annotations", updateAnnotationController.handle);
-router.delete("/annotations/:id", deleteAnnotationController.handle);
+router.delete("/annotations", deleteAnnotationController.handle);
 
 router.get("/users", listUsersController.handle);
 router.post("/users", createUserController.handle);
 router.put("/users", updateUserController.handle);
-router.delete("/users/:id", deleteUserController.handle);
+router.delete("/users", deleteUserController.handle);
 
 router.post("/login", authenticateUserController.handle);
