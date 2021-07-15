@@ -1,4 +1,4 @@
-import { UsersRepositories } from "../../repositories/UsersRepositories";
+import { AnnotationRepositories } from "../../repositories/AnnotationRepositories";
 import { getCustomRepository } from "typeorm";
 import { Annotation } from "../../entities/Annotation";
 
@@ -10,7 +10,7 @@ interface IAnnotationRequest {
 
 export class UpdateAnnotationService {
   async execute({ id, title, body }: IAnnotationRequest) {
-    const usersRepositories = getCustomRepository(UsersRepositories);
+    const usersRepositories = getCustomRepository(AnnotationRepositories);
 
     const annotation = usersRepositories
       .createQueryBuilder()

@@ -4,24 +4,18 @@ import { User } from "../../entities/User";
 
 interface IUserRequest {
   id: string;
-  email: string;
-  password: string;
 }
 
-export class UpdateUserService {
-  async execute({ id, email, password }: IUserRequest) {
+export class DeleteUserService {
+  async execute({ id }: IUserRequest) {
     const usersRepositories = getCustomRepository(UsersRepositories);
 
-    const users = usersRepositories
+    const user = usersRepositories
       .createQueryBuilder()
-      .update(User)
-      .set({
-        email,
-        password,
-      })
+      .delete()
+      .from(User)
       .where("id = :id", { id })
       .execute();
-
-    return users;
+    return user;
   }
 }

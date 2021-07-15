@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
-import { UpdateAnnotationService } from "../../service/userServices/UpdateUserService";
+import { UpdateUserService } from "../../service/userServices/UpdateUserService";
 
 export class UpdateUserController {
   async handle(req: Request, res: Response) {
-    const updateAnnotationService = new UpdateAnnotationService();
+    const updateAnnotationService = new UpdateUserService();
     const { id, email, password } = req.body;
-    const annotation = await updateAnnotationService.execute({
+    const user = await updateAnnotationService.execute({
       id,
       email,
       password,
     });
 
-    return res.json(annotation);
+    return res.json(user);
   }
 }

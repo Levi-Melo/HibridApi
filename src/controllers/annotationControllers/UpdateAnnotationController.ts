@@ -5,12 +5,12 @@ export class UpdateAnnotationController {
   async handle(req: Request, res: Response) {
     const updateAnnotationService = new UpdateAnnotationService();
     const { id, title, body } = req.body;
-    const users = await updateAnnotationService.execute({
+    const annotation = await updateAnnotationService.execute({
       id,
       title,
       body,
     });
 
-    return res.json(users);
+    return res.json(annotation);
   }
 }
