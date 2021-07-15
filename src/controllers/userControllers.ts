@@ -17,9 +17,9 @@ export class UserController {
     return res.json(user);
   }
   async delete(req: Request, res: Response) {
-    const { id } = req.body;
+    const id = req.body.userId;
     const createUserService = new DeleteUserService();
-    const user = await createUserService.execute({ id });
+    const user = await createUserService.execute(id);
     return res.json(user);
   }
   async list(req: Request, res: Response) {
@@ -29,7 +29,8 @@ export class UserController {
     return res.json(users);
   }
   async update(req: Request, res: Response) {
-    const { id, name, email, password } = req.body;
+    const { userId, name, email, password } = req.body;
+    const id = userId;
     const updateUserService = new UpdateUserService();
     const user = await updateUserService.execute({
       id,

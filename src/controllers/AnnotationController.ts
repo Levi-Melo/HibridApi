@@ -6,8 +6,9 @@ import { UpdateAnnotationService } from "../service/annotationServices/UpdateAnn
 
 export class AnnotationController {
   async create(req: Request, res: Response) {
-    const { title, body, owner } = req.body;
+    const { title, body, userId } = req.body;
     const createAnnotationService = new CreateAnnotationService();
+    const owner = userId;
     const annotation = await createAnnotationService.execute({
       title,
       body,
@@ -16,15 +17,15 @@ export class AnnotationController {
     return res.json(annotation);
   }
   async delete(req: Request, res: Response) {
-    const { id } = req.body;
+    const id = req.body.userId;
     const createAnnotationService = new DeleteAnnotationService();
     const annotation = await createAnnotationService.execute({ id });
     return res.json(annotation);
   }
   async list(req: Request, res: Response) {
-    const { owner } = req.body;
+    const { userId } = req.body;
     const listAnnotationService = new ListAnnotationService();
-    const annotations = await listAnnotationService.execute(owner);
+    const annotations = await listAnnotationService.execute(userId);
 
     return res.json(annotations);
   }

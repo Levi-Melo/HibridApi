@@ -12,17 +12,17 @@ export class AuthenticateUserService {
     const usersRepositories = getCustomRepository(UsersRepositories);
     const user = await usersRepositories.findOne({ email });
 
-    if (!user || !(await compare(password, user.password))) {
+    if (!user || !(password == user.password)) {
       throw new Error("Email/Password incorrect");
     }
     const token = sign(
       {
-        id: user.id,
+        userId: user.id,
       },
       "c4091bafbf665a34dadb0123c261f84b",
       {
-        subject: user.id,
         expiresIn: "1d",
+        subject: user.id,
       }
     );
 

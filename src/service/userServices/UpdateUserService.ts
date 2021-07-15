@@ -17,11 +17,12 @@ export class UpdateUserService {
       .createQueryBuilder()
       .update(User)
       .set({
+        id,
         name,
         email,
         password,
       })
-      .where("id = :id", { id })
+      .where("id = :id", { id: id })
       .execute();
 
     return users;
