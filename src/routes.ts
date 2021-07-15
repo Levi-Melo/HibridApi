@@ -1,37 +1,21 @@
 import { Router } from "express";
 
-import { AuthenticateUserController } from "./controllers/userControllers/AuthenticateUserController";
-import { CreateUserController } from "./controllers/userControllers/CreateUserController";
-import { ListUsersController } from "./controllers/userControllers/ListUsersController";
-import { UpdateUserController } from "./controllers/userControllers/UpdateUserController";
-import { DeleteUserController } from "./controllers/userControllers/DeleteUserController";
+import { UserController } from "./controllers/userControllers";
+import { AnnotationController } from "./controllers/AnnotationController";
 
-import { ListAnnotationsController } from "./controllers/annotationControllers/ListAnnotationsController";
-import { CreateAnnotationController } from "./controllers/annotationControllers/CreateAnnotationController";
-import { UpdateAnnotationController } from "./controllers/annotationControllers/UpdateAnnotationController";
-import { DeleteAnnotationController } from "./controllers/annotationControllers/DeleteAnnotationController";
-
-const authenticateUserController = new AuthenticateUserController();
-const listUsersController = new ListUsersController();
-const createUserController = new CreateUserController();
-const updateUserController = new UpdateUserController();
-const deleteUserController = new DeleteUserController();
-
-const listAnnotationsController = new ListAnnotationsController();
-const createAnnotationController = new CreateAnnotationController();
-const updateAnnotationController = new UpdateAnnotationController();
-const deleteAnnotationController = new DeleteAnnotationController();
+const userController = new UserController();
+const annotationController = new AnnotationController();
 
 export const router = Router();
 
-router.get("/annotations", listAnnotationsController.handle);
-router.post("/annotations", createAnnotationController.handle);
-router.put("/annotations", updateAnnotationController.handle);
-router.delete("/annotations", deleteAnnotationController.handle);
+router.get("/annotations", userController.list);
+router.post("/annotations", userController.create);
+router.put("/annotations", userController.update);
+router.delete("/annotations", userController.delete);
 
-router.get("/users", listUsersController.handle);
-router.post("/users", createUserController.handle);
-router.put("/users", updateUserController.handle);
-router.delete("/users", deleteUserController.handle);
+router.get("/users", annotationController.list);
+router.post("/users", annotationController.create);
+router.put("/users", annotationController.update);
+router.delete("/users", annotationController.delete);
 
-router.post("/login", authenticateUserController.handle);
+router.post("/login", userController.auth);
