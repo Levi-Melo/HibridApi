@@ -17,7 +17,7 @@ export class AuthenticateUserService {
     }
     const token = sign(
       {
-        email: user.email,
+        id: user.id,
       },
       "c4091bafbf665a34dadb0123c261f84b",
       {
