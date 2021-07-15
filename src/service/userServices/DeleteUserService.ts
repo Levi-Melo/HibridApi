@@ -10,7 +10,7 @@ export class DeleteUserService {
       .createQueryBuilder()
       .delete()
       .from(User)
-      .where("id = :id", { id: id })
+      .where("id = :id", { id })
       .execute();
     return user;
   }

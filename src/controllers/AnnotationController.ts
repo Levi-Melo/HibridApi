@@ -17,7 +17,7 @@ export class AnnotationController {
     return res.json(annotation);
   }
   async delete(req: Request, res: Response) {
-    const id = req.body.userId;
+    const id = req.body.id;
     const createAnnotationService = new DeleteAnnotationService();
     await createAnnotationService.execute({ id });
     return res.json(`Annotation Deleted : ${id}`);

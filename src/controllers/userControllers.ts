@@ -18,8 +18,8 @@ export class UserController {
   }
   async delete(req: Request, res: Response) {
     const id = req.body.userId;
-    const createUserService = new DeleteUserService();
-    await createUserService.execute(id);
+    const deleteUserService = new DeleteUserService();
+    await deleteUserService.execute(id);
     return res.json(`User Deleted : ${id}`);
   }
   async list(req: Request, res: Response) {
