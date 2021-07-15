@@ -8,14 +8,14 @@ const annotationController = new AnnotationController();
 
 export const router = Router();
 
-router.get("/annotations", userController.list);
-router.post("/annotations", userController.create);
-router.put("/annotations", userController.update);
-router.delete("/annotations", userController.delete);
+router.get("/users", userController.list);
+router.post("/users", userController.create);
+router.put("/users", userController.update);
+router.delete("/users", userController.delete);
 
-router.get("/users", annotationController.list);
-router.post("/users", annotationController.create);
-router.put("/users", annotationController.update);
-router.delete("/users", annotationController.delete);
+router.get("/annotations", annotationController.list);
+router.post("/annotations", annotationController.create);
+router.put("/annotations", annotationController.update);
+router.delete("/annotations", annotationController.delete);
 
 router.post("/login", userController.auth);
