@@ -31,7 +31,7 @@ router.delete("/annotations", deleteAnnotationController.handle);
 
 router.get("/users", listUsersController.handle);
 router.post("/users", createUserController.handle);
-router.put("/users", updateUserController.handle);
+router.patch("/users", updateUserController.handle);
 router.delete("/users", deleteUserController.handle);
 
 router.post("/login", authenticateUserController.handle);
