@@ -1,6 +1,6 @@
-# nlwValoriza
+# HybridApi
 
-Api developed by <a href="https://www.linkedin.com/in/levi-melo-dos-santos-5277441a1/">Levi Melo</a> during the NLW#6
+Api developed by <a href="https://www.linkedin.com/in/levi-melo-dos-santos-5277441a1/">Levi Melo</a>
 
 ## Index
 
