@@ -17,6 +17,6 @@ router.delete("/users", ensureAuthenticated, userController.delete);
 router.get("/annotations", ensureAuthenticated, annotationController.list);
 router.post("/annotations", ensureAuthenticated, annotationController.create);
 router.put("/annotations", ensureAuthenticated, annotationController.update);
-router.delete("/annotations", annotationController.delete);
+router.delete("/annotations", ensureAuthenticated, annotationController.delete);
 
 router.post("/login", userController.auth);

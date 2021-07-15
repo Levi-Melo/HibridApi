@@ -19,8 +19,8 @@ export class UserController {
   async delete(req: Request, res: Response) {
     const id = req.body.userId;
     const createUserService = new DeleteUserService();
-    const user = await createUserService.execute(id);
-    return res.json(user);
+    await createUserService.execute(id);
+    return res.json(`User Deleted : ${id}`);
   }
   async list(req: Request, res: Response) {
     const listUserService = new ListUserService();
@@ -38,7 +38,7 @@ export class UserController {
       email,
       password,
     });
-    return res.json(user);
+    return res.json({ id: id, name: name, email: email, password: password });
   }
   async auth(req: Request, res: Response) {
     const { email, password } = req.body;

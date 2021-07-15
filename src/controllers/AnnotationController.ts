@@ -19,8 +19,8 @@ export class AnnotationController {
   async delete(req: Request, res: Response) {
     const id = req.body.userId;
     const createAnnotationService = new DeleteAnnotationService();
-    const annotation = await createAnnotationService.execute({ id });
-    return res.json(annotation);
+    await createAnnotationService.execute({ id });
+    return res.json(`Annotation Deleted : ${id}`);
   }
   async list(req: Request, res: Response) {
     const { userId } = req.body;
@@ -32,12 +32,12 @@ export class AnnotationController {
   async update(req: Request, res: Response) {
     const updateAnnotationService = new UpdateAnnotationService();
     const { id, title, body } = req.body;
-    const annotation = await updateAnnotationService.execute({
+    await updateAnnotationService.execute({
       id,
       title,
       body,
     });
 
-    return res.json(annotation);
+    return res.json({ id: id, title: title, body: body });
   }
 }
