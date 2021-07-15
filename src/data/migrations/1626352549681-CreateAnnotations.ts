@@ -20,6 +20,10 @@ export class CreateAnnotations1626352549681 implements MigrationInterface {
             type: "varchar",
           },
           {
+            name: "owner",
+            type: "varchar",
+          },
+          {
             name: "created_at",
             type: "timestamp",
             default: "now()",
